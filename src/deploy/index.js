@@ -10,7 +10,7 @@ const GhostAdminApi = require('@tryghost/admin-api');
     });
 
     // Deploy it to the configured site
-    await api.themes.upload({file: '../liebling.zip'});
+    await api.themes.upload({file: '../platanews.zip'});
     console.log('Theme successfully uploaded.');
   } catch (err) {
     console.error(err);

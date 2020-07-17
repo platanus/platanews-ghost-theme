@@ -27,7 +27,6 @@
       }
     }
   },
-  "demo": "https://liebling.eduardogomez.io",
   "description": "Beautiful and clean theme that is easy and comfortable to use.",
   "engines": {
     "ghost": ">=3.0.0",
@@ -49,7 +48,7 @@
     "ghost-theme"
   ],
   "license": "MIT",
-  "name": "liebling",
+  "name": "platanews",
   "screenshots": {
     "desktop": "assets/screenshot-desktop.jpg",
     "mobile": "assets/screenshot-mobile.jpg"

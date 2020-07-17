@@ -57,7 +57,7 @@
   z-index: 2;
 
   @include respond-to('medium') {
-    max-width: 700px;
+    max-width: 900px;
   }
 
   @include respond-to('extra-large') {
