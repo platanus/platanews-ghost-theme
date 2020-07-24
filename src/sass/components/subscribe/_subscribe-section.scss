@@ -123,5 +123,45 @@
 }
 
 .home-subscribe-form {
-  display: flex;
+  &.loading {
+    & .m-button {
+      span {
+        display: none;
+      }
+
+      &::after {
+        content: 'Cargando...';
+      }
+
+      background-color: var(--primary-foreground-color);
+    }
+  }
+
+  &.error {
+    & .m-button {
+      span {
+        display: none;
+      }
+
+      &::after {
+        content: 'Error';
+      }
+
+      background-color: rgb(156, 0, 0);
+    }
+  }
+
+  &.success {
+    & .m-button {
+      span {
+        display: none;
+      }
+
+      &::after {
+        content: 'Estás suscrito!';
+      }
+
+      background-color: green;
+    }
+  }
 }
