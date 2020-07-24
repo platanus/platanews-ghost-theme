@@ -504,13 +504,9 @@
     margin-right: 8px !important;
   }
 
-  .kg-bookmark-author {
-    margin-right: 6px;
-
-    &::after {
-      content: '•';
-      margin-right: 6px;
-    }
+  .kg-bookmark-author:after {
+    content: '•';
+    margin: 0 6px;
   }
 
   .kg-bookmark-publisher {

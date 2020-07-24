@@ -73,4 +73,12 @@
       }
     }
   }
+
+  &--responsive {
+    width: 100%;
+
+    @include respond-to('medium') {
+      width: auto;
+    }
+  }
 }

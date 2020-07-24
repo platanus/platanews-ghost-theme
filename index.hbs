@@ -35,7 +35,10 @@ into the {body} of the default.hbs template --}}
       <a href="{{@site.url}}/subscribe" class="m-button filled">{{t "Subscribe"}}</a>
     {{/if}}
     {{#if @labs.members}}
-      <a href="{{@site.url}}/newsletter" class="m-button filled">{{t "Subscribe"}}</a>
+      <form class="home-subscribe-form" data-members-form="subscribe">
+        <input placeholder="Tu correo" class="m-input m-input--small in-home" data-members-email type="email" required="true"/>
+        <button id="subscribe_button" class="m-button m-button--responsive primary" type="submit">Quiero unirme</button>
+      </form>
     {{/if}}
   </div>
   </section>
@@ -56,7 +59,7 @@ into the {body} of the default.hbs template --}}
                               #featured-bg-{{id}} {
                                 background-image: url({{img_url feature_image size='l'}});
                               }
-                            
+
                               @media(max-width: 768px) {
                                 #featured-bg-{{id}} {
                                   background-image: url({{img_url feature_image size='m'}});

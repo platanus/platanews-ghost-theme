@@ -25,6 +25,17 @@
     }
   }
 
+  &--small {
+    @include respond-to('medium') {
+      width: 300px;
+      margin-right: 5px;
+    }
+
+    &.in-home {
+      margin-bottom: 7px;
+    }
+  }
+
   &.in-subscribe-section {
     margin-bottom: 15px;
   }
