@@ -27,7 +27,7 @@ into the {body} of the default.hbs template --}}
   {{!-- Inject styles of the hero image to make it responsive --}}
   {{> hero }}
 
-  <div class="m-hero__content" data-aos="fade-down">
+  <div class="m-hero__content in-home" data-aos="fade-down">
     <div class="m-hero__headers">
       <h1 class="m-hero-title bigger">
         <p>Lee sobre cómo desarrollar software y startups.</p>
@@ -124,6 +124,49 @@ into the {body} of the default.hbs template --}}
     {{!-- Links to Previous/Next posts --}}
     {{pagination}}
   </div>
+
+  {{#if @labs.subscribers}}
+    <section class="m-subscribe-section">
+      <div class="l-wrapper in-post">
+        <div class="m-subscribe-section__content">
+          <div class="m-subscribe-section__text">
+            <h4 class="m-subscribe-section__title">{{t "Subscribe to our newsletter"}}</h4>
+            <p class="m-subscribe-section__description">
+              {{t "Get the latest posts delivered right to your inbox."}}
+            </p>
+          </div>
+          <div class="m-subscribe-section__form">
+            {{subscribe_form
+              form_id="subscribe-form"
+              form_class="m-subscribe-section__form"
+              input_id="subscribe_input"
+              input_class="m-input in-subscribe-section"
+              button_id="subscribe_button"
+              button_class="m-button primary block"
+              placeholder=(t "Your email address")
+            }}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/if}}
+  {{#if @labs.members}}
+    <section class="m-subscribe-section">
+      <div class="l-wrapper in-post">
+        <div class="m-subscribe-section__content">
+          <div class="m-subscribe-section__text">
+            <h4 class="m-subscribe-section__title">{{t "Subscribe to our newsletter"}}</h4>
+            <p class="m-subscribe-section__description">
+              {{t "Get the latest posts delivered right to your inbox."}}
+            </p>
+          </div>
+          <div class="m-subscribe-section__form">
+            {{> "newsletter-form"}}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/if}}
 </main>
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
