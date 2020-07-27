@@ -1,10 +1,6 @@
 .m-heading {
   text-align: center;
-  margin: 0 auto 40px;
-
-  @include respond-to('medium') {
-    margin-bottom: 60px;
-  }
+  margin: 0 auto;
 
   &.in-subscribe-page {
     @include respond-to('medium') {

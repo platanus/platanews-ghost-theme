@@ -32,7 +32,7 @@
 
   &.in-comments {
     @include respond-to('medium') {
-      max-width: 820px;
+      max-width: 720px;
     }
   }
 

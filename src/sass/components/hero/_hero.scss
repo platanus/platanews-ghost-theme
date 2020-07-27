@@ -3,13 +3,13 @@
   flex-direction: column;
   min-height: 365px;
   overflow: hidden;
-  padding: 100px 0 75px;
+  padding: 100px 0 0;
   background-color: var(--secondary-subtle-color);
   @extend .content-centered;
 
   @include respond-to('medium') {
     min-height: 400px;
-    padding: 150px 0 75px;
+    padding: 75px 0 0;
   }
 
   &.with-picture {
@@ -41,7 +41,12 @@
 }
 
 .m-hero__illustration {
-  flex: 1;
+  display: none;
+
+  @include respond-to('medium') {
+    display: flex;
+    flex: 1;
+  }
 }
 
 .m-hero__img {
@@ -72,12 +77,21 @@
   padding: 0 $mobile-space;
   z-index: 2;
 
+  @include respond-to('small') {
+    flex-direction: column;
+  }
+
   @include respond-to('medium') {
     max-width: 1200px;
+    flex-direction: row;
   }
 
   @include respond-to('extra-large') {
     padding: 0;
+  }
+
+  &--column {
+    flex-direction: column;
   }
 }
 

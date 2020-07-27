@@ -23,7 +23,7 @@ into the {body} of the default.hbs template --}}
   {{#author}}
     {{!-- Inject styles of the hero image to make it responsive --}}
     {{> hero background=cover_image}}
-      <div class="m-hero__content" data-aos="fade-down">
+      <div class="m-hero__content m-hero__content--column" data-aos="fade-down">
         {{#if profile_image}}
           <div class="m-hero-avatar" style="background-image: url({{profile_image}});"></div>
         {{else}}
