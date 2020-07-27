@@ -34,6 +34,21 @@
   }
 }
 
+.m-hero__headers {
+  display: flex;
+  flex: 4;
+  flex-direction: column;
+}
+
+.m-hero__illustration {
+  flex: 1;
+}
+
+.m-hero__img {
+  height: 270px;
+  margin: 0 20px;
+}
+
 .m-hero__picture {
   position: absolute;
   top: 0;
@@ -51,13 +66,14 @@
 }
 
 .m-hero__content {
+  display: flex;
   position: relative;
   text-align: center;
   padding: 0 $mobile-space;
   z-index: 2;
 
   @include respond-to('medium') {
-    max-width: 900px;
+    max-width: 1200px;
   }
 
   @include respond-to('extra-large') {

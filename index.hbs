@@ -26,21 +26,27 @@ into the {body} of the default.hbs template --}}
 <main class="main-wrap">
   {{!-- Inject styles of the hero image to make it responsive --}}
   {{> hero }}
+
   <div class="m-hero__content" data-aos="fade-down">
-    <h1 class="m-hero-title bigger">Únete a la comunidad de developers apasionados por el buen software y el aprendizaje constante</h1>
-    {{#if @site.description}}
+    <div class="m-hero__headers">
+      <h1 class="m-hero-title bigger">
+        <p>Lee sobre cómo desarrollar software y startups.</p>
+        <p>Entérate de lo que funciona en productos digitales.</p>
+      </h1>
       <p class="m-hero-description bigger">{{@site.description}}</p>
-    {{/if}}
-    {{#if @labs.subscribers}}
-      <a href="{{@site.url}}/subscribe" class="m-button filled">{{t "Subscribe"}}</a>
-    {{/if}}
-    {{#if @labs.members}}
-      <form class="home-subscribe-form" data-members-form="subscribe">
-        <input placeholder="Tu correo" class="m-input m-input--small in-home" data-members-email type="email" required="true"/>
-        <button id="subscribe_button" class="m-button m-button--responsive primary" type="submit"><span>Quiero unirme</span></button>
-      </form>
-    {{/if}}
+
+      {{#if @labs.members}}
+        <form class="home-subscribe-form" data-members-form="subscribe">
+          <input placeholder="Tu correo" class="m-input m-input--small in-home" data-members-email type="email" required="true"/>
+          <button id="subscribe_button" class="m-button m-button--responsive primary" type="submit"><span>Subscribirme</span></button>
+        </form>
+      {{/if}}
+    </div>
+    <div class="m-hero__illustration">
+      <img class="m-hero__img" src="https://ouch-cdn.icons8.com/preview/176/922d1825-d6d1-4fdf-a4e4-07ac28b8bb36.png">
+    </div>
   </div>
+
   </section>
   <div class="l-content">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
