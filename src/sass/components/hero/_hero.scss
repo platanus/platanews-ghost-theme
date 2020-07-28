@@ -38,6 +38,11 @@
   display: flex;
   flex: 4;
   flex-direction: column;
+
+  @include respond-to('medium') {
+    align-items: flex-start;
+    text-align: start;
+  }
 }
 
 .m-hero__illustration {
@@ -82,6 +87,7 @@
 
     @include respond-to('medium') {
       margin: 70px 0;
+      align-items: flex-start;
     }
   }
 

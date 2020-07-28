@@ -9,6 +9,7 @@
   @include respond-to('medium') {
     letter-spacing: 0.5px;
     font-size: 2.250rem;
+    text-align: start;
   }
 
   &.bigger {
