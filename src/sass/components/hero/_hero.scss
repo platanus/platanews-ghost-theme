@@ -39,9 +39,11 @@
   flex: 4;
   flex-direction: column;
 
-  @include respond-to('medium') {
-    align-items: flex-start;
-    text-align: start;
+  &.in-home {
+    @include respond-to('medium') {
+      align-items: flex-start;
+      text-align: start;
+    }
   }
 }
 

@@ -23,7 +23,7 @@ into the {body} of the default.hbs template --}}
   {{#tag}}
     {{!-- Inject styles of the hero image to make it responsive --}}
     {{> hero background=feature_image}}
-    <div class="m-hero__content" data-aos="fade-down">
+    <div class="m-hero__content m-hero__content--column" data-aos="fade-down">
       <h1 class="m-hero-title bigger">{{name}}</h1>
       {{#if description}}
         <p class="m-hero-description">
