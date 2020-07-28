@@ -37,7 +37,7 @@ into the {body} of the default.hbs template --}}
 
       {{#if @labs.members}}
         <form class="home-subscribe-form" data-members-form="subscribe">
-          <input placeholder="Tu correo" class="m-input m-input--small in-home" data-members-email type="email" required="true"/>
+          <input placeholder="Tu dirección de correo electrónico" class="m-input m-input--small in-home" data-members-email type="email" required="true"/>
           <button id="subscribe_button" class="m-button m-button--responsive primary" type="submit"><span>Subscribirme</span></button>
         </form>
       {{/if}}
@@ -125,9 +125,43 @@ into the {body} of the default.hbs template --}}
     {{pagination}}
   </div>
 
+  <div class="m-features-section">
+    <div class="l-wrapper">
+      <h1 class="m-features-section__title"> Lo que nos gusta transmitir </h1>
+      <div class="m-features-section__feature">
+        <div class="m-features-section__text">
+          <h2>Mejores prácticas de desarrollo de software</h2>
+          <p>Nos gusta hacer las cosas bien. Es parte de nuestra cultura. Nos encanta escribir sobre cómo hacemos las cosas.</p>
+        </div>
+        <img class="m-features-section__img" src="https://ouch-cdn.icons8.com/preview/416/4ae62beb-74c7-41e0-a114-02ae6f50fd59.png">
+      </div>
+      <div class="m-features-section__feature">
+        <div class="m-features-section__text">
+          <h2>Cómo desarrollar productos digitales que tengan usuarios</h2>
+          <p>Muchos pueden desarrollar software. Pero para que sea usado hay que agregar otras variables. Escribimos harto sobre lo que vamos aprendiendo respecto a esto.</p>
+        </div>
+        <img class="m-features-section__img" src="https://ouch-cdn.icons8.com/preview/724/e1cb815d-971b-44a8-9005-6ca7c5c6da2b.png">
+      </div>
+      <div class="m-features-section__feature">
+        <div class="m-features-section__text">
+          <h2>Nuestro stack: Rails, Vue y React Native ♥️</h2>
+          <p>Somos fanáticos de Ruby on Rails. También nos gusta mucho Vue y React Native. Escribimos sobre las herramientas que desarrollamos y sobre cómo usamos estas herramientas.</p>
+        </div>
+        <img class="m-features-section__img" src="https://ouch-cdn.icons8.com/preview/733/a1a4c51c-cbce-447f-9885-a33a0c3ce1e5.png">
+      </div>
+      <div class="m-features-section__feature">
+        <div class="m-features-section__text">
+          <h2>Trabajar en Platanus</h2>
+          <p>Regularmente contamos cómo es trabajar en Platanus. También sobre nuestras distintas modalidades de trabajo. Prácticas, trainees, full-time, etc.</p>
+        </div>
+        <img class="m-features-section__img" src="https://ouch-cdn.icons8.com/preview/92/24b74672-0883-4f62-a014-8fe0a5f5d44e.png">
+      </div>
+    </div>
+  </div>
+
   {{#if @labs.subscribers}}
     <section class="m-subscribe-section">
-      <div class="l-wrapper in-post">
+      <div class="l-wrapper">
         <div class="m-subscribe-section__content">
           <div class="m-subscribe-section__text">
             <h4 class="m-subscribe-section__title">{{t "Subscribe to our newsletter"}}</h4>
@@ -155,9 +189,9 @@ into the {body} of the default.hbs template --}}
       <div class="l-wrapper in-post">
         <div class="m-subscribe-section__content">
           <div class="m-subscribe-section__text">
-            <h4 class="m-subscribe-section__title">{{t "Subscribe to our newsletter"}}</h4>
+            <h4 class="m-subscribe-section__title">Suscríbete a nuestro newsletter</h4>
             <p class="m-subscribe-section__description">
-              {{t "Get the latest posts delivered right to your inbox."}}
+              Recibe un correo mensual con todo el material que publicamos y actualizamos durante el mes.
             </p>
           </div>
           <div class="m-subscribe-section__form">

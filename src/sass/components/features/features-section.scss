@@ -1,0 +1,54 @@
+.m-features-section {
+  &__feature {
+    display: flex;
+    align-items: center;
+    margin: 70px 0;
+    flex-direction: column-reverse;
+    text-align: center;
+
+    @include respond-to('medium') {
+      height: 270px;
+      margin: 70px;
+      text-align: start;
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      &:nth-child(odd) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__text {
+    flex: 1;
+
+    & h2 {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
+
+    @include respond-to('medium') {
+      padding: 0 30px;
+    }
+  }
+
+  &__img {
+    width: 60%;
+
+    @include respond-to('medium') {
+      width: 250px;
+      margin: 0 50px;
+    }
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    text-align: center;
+  }
+}
