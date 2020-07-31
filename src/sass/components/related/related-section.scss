@@ -1,0 +1,27 @@
+.m-related-section {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 20px 20px;
+
+  @include respond-to('medium') {
+    flex-direction: row;
+  }
+
+  &__item {
+    cursor: pointer;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    z-index: 0;
+    display: block;
+    margin: auto;
+  }
+}
+
+.m-related-section-item {
+  &__title {
+    font-size: 2rem;
+  }
+}
