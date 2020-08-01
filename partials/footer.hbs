@@ -21,4 +21,7 @@ This footer template is shared across all the pages.
       {{/if}}
     </nav>
   </div>
+  {{#if @member}}
+    <input type="hidden" id="member-id" name="member-id" value="{{@member.email}}">
+  {{/if}}
 </footer>

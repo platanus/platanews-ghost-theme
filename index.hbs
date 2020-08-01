@@ -36,9 +36,9 @@ into the {body} of the default.hbs template --}}
       <p class="m-hero-description bigger">{{@site.description}}</p>
 
       {{#if @labs.members}}
-        <form class="home-subscribe-form" data-members-form="subscribe">
+        <form id="home-hero-subscribe-form" class="home-subscribe-form" data-members-form="subscribe">
           <input placeholder="Tu dirección de correo electrónico" class="m-input m-input--small in-home" data-members-email type="email" required="true"/>
-          <button id="subscribe_button" class="m-button m-button--responsive primary" type="submit"><span>Subscribirme</span></button>
+          <button class="m-button m-button--responsive primary" type="submit"><span>Subscribirme</span></button>
         </form>
       {{/if}}
     </div>
@@ -162,13 +162,13 @@ into the {body} of the default.hbs template --}}
   <div class="m-related-section l-wrapper">
     <article class="m-article-card m-related-section__item">
       <div class="m-article-card__picture">
-        <a href="https://platan.us/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <a href="https://platan.us/?ref=platanews" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
         <img class="m-related-section__image" src="{{ asset "images/platanus-web.png" }}" loading="lazy" alt="">
       </div>
       <div class="m-article-card__info">
-        <a href="https://platan.us/" class="m-article-card__info-link">
+        <a href="https://platan.us/?ref=platanews" class="m-article-card__info-link">
           <div>
-            <h2 class="m-related-section-item__title m-article-card__title js-article-card-title " title="Managing admin settings" style="">
+            <h2 class="m-related-section-item__title m-article-card__title js-article-card-title">
               Platanus
             </h2>
             <p>Pagina web oficial de Platanus. Entra acá para ver nuestra historia y más.</p>
@@ -179,13 +179,13 @@ into the {body} of the default.hbs template --}}
 
     <article class="m-article-card m-related-section__item">
       <div class="m-article-card__picture">
-        <a href="https://ventures.platan.us/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <a href="https://ventures.platan.us/?ref=platanews" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
         <img class="m-related-section__image" src="{{ asset "images/ventures-web.png" }}" loading="lazy" alt="">
       </div>
       <div class="m-article-card__info">
-        <a href="https://ventures.platan.us/" class="m-article-card__info-link">
+        <a href="https://ventures.platan.us/?ref=platanews" class="m-article-card__info-link">
           <div>
-            <h2 class="m-related-section-item__title m-article-card__title js-article-card-title " title="Managing admin settings" style="">
+            <h2 class="m-related-section-item__title m-article-card__title js-article-card-title">
               Platanus Ventures
             </h2>
             <p>Programa de 6 meses para iniciar tu startup.</p>
@@ -196,13 +196,13 @@ into the {body} of the default.hbs template --}}
 
     <article class="m-article-card m-related-section__item">
       <div class="m-article-card__picture">
-        <a href="https://la-guia.platan.us/" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+        <a href="https://la-guia.platan.us/?ref=platanews" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
         <img class="m-related-section__image" src="{{ asset "images/la-guia-web.png" }}" loading="lazy" alt="">
       </div>
       <div class="m-article-card__info">
-        <a href="https://la-guia.platan.us/" class="m-article-card__info-link">
+        <a href="https://la-guia.platan.us/?ref=platanews" class="m-article-card__info-link">
           <div>
-            <h2 class="m-related-section-item__title m-article-card__title js-article-card-title " title="Managing admin settings" style="">
+            <h2 class="m-related-section-item__title m-article-card__title js-article-card-title">
               La guía de Platanus
             </h2>
             <p>Mandamientos, lineamientos y acuerdos tecnológicos que tenemos para trabajar en Platanus.</p>
@@ -212,31 +212,6 @@ into the {body} of the default.hbs template --}}
     </article>
   </div>
 
-  {{#if @labs.subscribers}}
-    <section class="m-subscribe-section">
-      <div class="l-wrapper">
-        <div class="m-subscribe-section__content">
-          <div class="m-subscribe-section__text">
-            <h4 class="m-subscribe-section__title">{{t "Subscribe to our newsletter"}}</h4>
-            <p class="m-subscribe-section__description">
-              {{t "Get the latest posts delivered right to your inbox."}}
-            </p>
-          </div>
-          <div class="m-subscribe-section__form">
-            {{subscribe_form
-              form_id="subscribe-form"
-              form_class="m-subscribe-section__form"
-              input_id="subscribe_input"
-              input_class="m-input in-subscribe-section"
-              button_id="subscribe_button"
-              button_class="m-button primary block"
-              placeholder=(t "Your email address")
-            }}
-          </div>
-        </div>
-      </div>
-    </section>
-  {{/if}}
   {{#if @labs.members}}
     <section class="m-subscribe-section">
       <div class="l-wrapper in-post">
@@ -247,7 +222,7 @@ into the {body} of the default.hbs template --}}
               Recibe un correo mensual con todo el material que publicamos y actualizamos durante el mes.
             </p>
           </div>
-          <div class="m-subscribe-section__form">
+          <div id="home-bottom-subscribe-form" class="m-subscribe-section__form">
             {{> "newsletter-form"}}
           </div>
         </div>
