@@ -1,0 +1,66 @@
+{{!--
+This template is used for the index page.
+It can be used also as the home page or the default page.
+--}}
+
+{{!-- This block preloads specific assets for the index page --}}
+{{#contentFor "preload"}}
+  <link rel="preload" href="{{asset "css/home.css"}}" as="style" />
+  <link rel="preload" href="{{asset "css/listing.css"}}" as="style" />
+  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
+{{/contentFor}}
+
+{{!-- This block loads specific styles for the index page --}}
+{{#contentFor "styles"}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
+  <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
+{{/contentFor}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+
+{{!-- Special header.hbs partial to generate the <header> tag --}}
+{{> header background=@site.cover_image}}
+
+<main class="main-wrap">
+    {{> hero }}
+    <header class="m-heading">
+      <h1 class="m-heading__title in-post">Blog</h1>
+    </header>
+  </section>
+  <div class="l-content">
+    <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
+      <div class="l-grid centered">
+        {{!-- The tag below iterates over all the posts --}}
+        {{> "loop"}}
+      </div>
+    </div>
+    {{!-- Links to Previous/Next posts --}}
+    {{pagination}}
+  </div>
+
+
+  {{#if @labs.members}}
+    <section class="m-subscribe-section">
+      <div class="l-wrapper in-post">
+        <div class="m-subscribe-section__content">
+          <div class="m-subscribe-section__text">
+            <h4 class="m-subscribe-section__title">Suscríbete a nuestro newsletter</h4>
+            <p class="m-subscribe-section__description">
+              Recibe un correo mensual con todo el material que publicamos y actualizamos durante el mes.
+            </p>
+          </div>
+          <div id="home-bottom-subscribe-form" class="m-subscribe-section__form">
+            {{> "newsletter-form"}}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/if}}
+</main>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+  <script defer src="{{asset "js/home.js"}}"></script>
+{{/contentFor}}

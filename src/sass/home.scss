@@ -9,3 +9,18 @@
 @import "components/features/features-section";
 
 @import "components/related/related-section";
+
+.m-articles-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 40px;
+
+  &__text {
+    display: inline-block;
+    color: var(--titles-color);
+    letter-spacing: .2px;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+}

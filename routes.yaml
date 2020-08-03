@@ -11,11 +11,14 @@ routes:
   /account/:
     template: members/account
     data: page.account
+  /:
+    template: index
 
 collections:
-  /:
-    permalink: /{slug}/
-    template: index
+  /blog/:
+    permalink: /blog/{slug}/
+    template: posts
+
 
 taxonomies:
   tag: /tag/{slug}/
