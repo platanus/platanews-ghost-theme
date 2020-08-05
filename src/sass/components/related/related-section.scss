@@ -1,11 +1,19 @@
 .m-related-section {
-  display: flex;
-  flex-direction: column;
   padding: 80px 20px 20px;
 
-  @include respond-to('medium') {
-    flex-direction: row;
+  &__title {
+    text-align: center;
   }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to('medium') {
+      flex-direction: row;
+    }
+  }
+
 
   &__item {
     cursor: pointer;

@@ -1,4 +1,7 @@
 .m-features-section {
+  padding-top: 50px;
+  background-color: var(--secondary-subtle-color);
+
   &__feature {
     display: flex;
     align-items: center;
@@ -8,7 +11,7 @@
 
     @include respond-to('medium') {
       height: 270px;
-      margin: 70px;
+      margin: 70px 0;
       text-align: start;
 
       &:nth-child(even) {
