@@ -29,7 +29,7 @@
 
     & h2 {
       font-size: 2rem;
-      font-weight: 500;
+      font-weight: bold;
     }
 
     p {
@@ -53,5 +53,6 @@
   &__title {
     font-size: 2.25rem;
     text-align: center;
+    font-weight: 500;
   }
 }
