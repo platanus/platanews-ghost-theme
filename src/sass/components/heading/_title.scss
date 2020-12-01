@@ -15,6 +15,7 @@
     letter-spacing: 0.5px;
     font-size: 2rem;
     margin-bottom: 15px;
+    padding: 0 10px;
 
     @include respond-to('medium') {
       letter-spacing: 0.7px;
