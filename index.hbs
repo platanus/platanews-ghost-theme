@@ -23,36 +23,164 @@ into the {body} of the default.hbs template --}}
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{> header background=@site.cover_image}}
 
-<main class="main-wrap">
-  {{!-- Inject styles of the hero image to make it responsive --}}
-  {{> hero }}
+<main class="main-wrap my-12">
+  <div class="l-content">
+    <div class="hidden md:block l-wrapper" data-aos="fade-up" data-aos-delay="300">
+      <h1 class="text-2xl font-bold px-2">Destacados</h1>
+      <div class="l-grid centered">
+        {{#get "posts" include="authors,tags" filter="featured:true" limit="3" as |posts|}}
+          {{#foreach posts}}
+            {{#is "post"}}
+              <div class="m-recommended-slider__item glide__slide">
+            {{/is}}
+            <article class="m-article-card {{#unless feature_image}}no-picture{{/unless}} {{post_class}}">
+              <div class="m-article-card__picture">
+                <a href="{{url}}" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+                {{#if feature_image}}
+                  <img class="m-article-card__picture-background" src="{{img_url feature_image size="m"}}" loading="lazy" alt="">
+                {{/if}}
+                <a href="{{primary_author.url}}" class="m-article-card__author js-tooltip" aria-label="{{primary_author.name}}" data-tippy-content="{{t "Posted by"}} {{primary_author.name}} {{authors autolink="false" from="2" prefix=(t "Among with") separator=" , "}}">
+                  {{#if primary_author.profile_image}}
+                    <div style="background-image: url({{img_url primary_author.profile_image size="xs"}});"></div>
+                  {{else}}
+                    <div style="background-image: url({{asset "images/default-avatar-square-small.jpg"}});"></div>
+                  {{/if}}
+                </a>
+                {{#if featured}}
+                  <a href="{{url}}" class="m-article-card__featured js-tooltip" data-tippy-content="{{t "Featured"}}" aria-label="{{t "Featured"}}">
+                    <span class="icon-star" aria-hidden="true"></span>
+                  </a>
+                {{/if}}
+              </div>
+              {{#if primary_tag}}
+                <div class="m-article-card__info">
+                  <a href="{{primary_tag.url}}" class="m-article-card__tag">{{primary_tag.name}}</a>
+              {{else}}
+                <div class="m-article-card__info no-tag">
+              {{/if}}
+                <a href="{{url}}" class="m-article-card__info-link" aria-label="{{title}}">
+                  <div>
+                    <h2 class="m-article-card__title js-article-card-title {{#unless feature_image}}js-article-card-title-no-image{{/unless}}" title="{{title}}">
+                      {{title}}
+                    </h2>
+                  </div>
+                  <div class="m-article-card__timestamp">
+                    <span>{{date published_at timeago="true"}}</span>
+                    <span>&bull;</span>
+                    <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                  </div>
+                </a>
+              </div>
+            </article>
+            {{#is "post"}}
+              </div>
+            {{/is}}
+            {{else}}
+              <header class="m-heading no-margin">
+                <h3>{{t "No posts found"}}</h3>
+                <p>
+                  {{t "Apparently there are no posts at the moment, check again later."}}
+                </p>
+              </header>
+          {{/foreach}}
+        {{/get}}
 
-  <div class="m-hero__content in-home" data-aos="fade-down">
-    <div class="m-hero__headers in-home">
-      <h1 class="m-hero-title bigger in-home">
-        <p>Te actualizamos sobre desarrollo de software y startups.</p>
-        <p>Aprende lo que realmente importa.</p>
-      </h1>
-      <p class="m-hero-description bigger">{{@site.description}}</p>
-
-      {{#if @labs.members}}
-        <form id="home-hero-subscribe-form" class="home-subscribe-form" data-members-form="subscribe">
-          <input placeholder="Tu dirección de correo electrónico" class="m-input m-input--small in-home" data-members-email type="email" required="true"/>
-          <button class="m-button m-button--responsive primary" type="submit"><span>Subscribirme</span></button>
-        </form>
-      {{/if}}
+      </div>
     </div>
-    <div class="m-hero__illustration">
-      <img class="m-hero__img" src="{{asset "images/hero-programmer.png"}}">
+
+    <div class="block md:hidden l-wrapper" data-aos="fade-up" data-aos-delay="300">
+      <h1 class="text-2xl font-bold px-2">Destacado</h1>
+      <div class="l-grid centered">
+        {{#get "posts" include="authors,tags" filter="featured:true" limit="1" as |posts|}}
+          {{#foreach posts}}
+            {{#is "post"}}
+              <div class="m-recommended-slider__item glide__slide">
+            {{/is}}
+            <article class="m-article-card {{#unless feature_image}}no-picture{{/unless}} {{post_class}}">
+              <div class="m-article-card__picture">
+                <a href="{{url}}" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
+                {{#if feature_image}}
+                  <img class="m-article-card__picture-background" src="{{img_url feature_image size="m"}}" loading="lazy" alt="">
+                {{/if}}
+                <a href="{{primary_author.url}}" class="m-article-card__author js-tooltip" aria-label="{{primary_author.name}}" data-tippy-content="{{t "Posted by"}} {{primary_author.name}} {{authors autolink="false" from="2" prefix=(t "Among with") separator=" , "}}">
+                  {{#if primary_author.profile_image}}
+                    <div style="background-image: url({{img_url primary_author.profile_image size="xs"}});"></div>
+                  {{else}}
+                    <div style="background-image: url({{asset "images/default-avatar-square-small.jpg"}});"></div>
+                  {{/if}}
+                </a>
+                {{#if featured}}
+                  <a href="{{url}}" class="m-article-card__featured js-tooltip" data-tippy-content="{{t "Featured"}}" aria-label="{{t "Featured"}}">
+                    <span class="icon-star" aria-hidden="true"></span>
+                  </a>
+                {{/if}}
+              </div>
+              {{#if primary_tag}}
+                <div class="m-article-card__info">
+                  <a href="{{primary_tag.url}}" class="m-article-card__tag">{{primary_tag.name}}</a>
+              {{else}}
+                <div class="m-article-card__info no-tag">
+              {{/if}}
+                <a href="{{url}}" class="m-article-card__info-link" aria-label="{{title}}">
+                  <div>
+                    <h2 class="m-article-card__title js-article-card-title {{#unless feature_image}}js-article-card-title-no-image{{/unless}}" title="{{title}}">
+                      {{title}}
+                    </h2>
+                  </div>
+                  <div class="m-article-card__timestamp">
+                    <span>{{date published_at timeago="true"}}</span>
+                    <span>&bull;</span>
+                    <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                  </div>
+                </a>
+              </div>
+            </article>
+            {{#is "post"}}
+              </div>
+            {{/is}}
+            {{else}}
+              <header class="m-heading no-margin">
+                <h3>{{t "No posts found"}}</h3>
+                <p>
+                  {{t "Apparently there are no posts at the moment, check again later."}}
+                </p>
+              </header>
+          {{/foreach}}
+        {{/get}}
+
+      </div>
     </div>
   </div>
 
-  </section>
+  {{#if @labs.members}}
+    <section class="m-subscribe-section py-12">
+      <div class="l-wrapper in-post">
+        <div class="m-subscribe-section__content">
+          <div class="m-subscribe-section__text">
+            <h4 class="m-subscribe-section__title">Suscríbete a nuestro newsletter</h4>
+            <p class="m-subscribe-section__description">
+              Recibe un correo mensual con el compilado de lo mejor de software, startups y tecnología.
+            </p>
+          </div>
+          <div id="home-bottom-subscribe-form" class="m-subscribe-section__form">
+            {{> "newsletter-form"}}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/if}}
+  {{!-- {{#if @labs.members}}
+    <form id="home-hero-subscribe-form" class="home-subscribe-form" data-members-form="subscribe">
+      <input placeholder="Tu dirección de correo electrónico" class="m-input m-input--small in-home" data-members-email type="email" required="true"/>
+      <button class="m-button m-button--responsive primary" type="submit"><span>Subscribirme</span></button>
+    </form>
+  {{/if}} --}}
+
   <div class="l-content">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
-      <h1 class="l-content__title"> Últimos posts </h1>
+      <h1 class="text-2xl font-bold px-2">Últimos</h1>
       <div class="l-grid centered">
-        {{#get "posts" include="authors,tags" limit="3" as |posts|}}
+        {{#get "posts" include="authors,tags" limit="9" as |posts|}}
           {{#foreach posts}}
             {{#is "post"}}
               <div class="m-recommended-slider__item glide__slide">
@@ -120,104 +248,15 @@ into the {body} of the default.hbs template --}}
     </span>
   </a>
 
-  <div class="m-features-section">
-    <div class="l-wrapper">
-      <h1 class="m-features-section__title"> Lo que nos gusta transmitir </h1>
-      <div class="m-features-section__feature">
-        <div class="m-features-section__text">
-          <h2>Mejores prácticas de desarrollo de software</h2>
-          <p>Nos gusta hacer las cosas bien. Es parte de nuestra cultura. Nos encanta escribir sobre cómo hacemos las cosas.</p>
-        </div>
-        <img class="m-features-section__img" src="{{asset "images/home-book.png"}}">
-      </div>
-      <div class="m-features-section__feature">
-        <div class="m-features-section__text">
-          <h2>Cómo desarrollar productos digitales que tengan usuarios</h2>
-          <p>Muchos pueden desarrollar software. Pero para que sea usado hay que agregar otras variables. Escribimos harto sobre lo que vamos aprendiendo respecto a esto.</p>
-        </div>
-        <img class="m-features-section__img" src="{{asset "images/home-laptop.png"}}">
-      </div>
-      <div class="m-features-section__feature">
-        <div class="m-features-section__text">
-          <h2>Nuestro stack: Rails, Vue y React Native ♥️</h2>
-          <p>Somos fanáticos de Ruby on Rails. También nos gusta mucho Vue y React Native. Escribimos sobre las herramientas que desarrollamos y sobre cómo usamos estas herramientas.</p>
-        </div>
-        <img class="m-features-section__img" src="{{asset "images/home-webpage.png"}}">
-      </div>
-      <div class="m-features-section__feature">
-        <div class="m-features-section__text">
-          <h2>Trabajar en Platanus</h2>
-          <p>Regularmente contamos cómo es trabajar en Platanus. También sobre nuestras distintas modalidades de trabajo. Prácticas, trainees, full-time, etc.</p>
-        </div>
-        <img class="m-features-section__img" src="{{asset "images/home-success.png"}}">
-      </div>
-    </div>
-  </div>
-
-  <div class="m-related-section l-wrapper">
-    <h1 class="m-related-section__title"> Nuestras otras páginas </h1>
-    <div class="m-related-section__content">
-      <article class="m-article-card m-related-section__item">
-        <div class="m-article-card__picture">
-          <a href="https://platan.us/?ref=platanews" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
-          <img class="m-related-section__image" src="{{ asset "images/platanus-web.png" }}" loading="lazy" alt="">
-        </div>
-        <div class="m-article-card__info">
-          <a href="https://platan.us/?ref=platanews" class="m-article-card__info-link">
-            <div>
-              <h2 class="m-related-section-item__title m-article-card__title js-article-card-title">
-                Platanus
-              </h2>
-              <p>Pagina web oficial de Platanus. Entra acá para ver nuestra historia y más.</p>
-            </div>
-          </a>
-        </div>
-      </article>
-
-      <article class="m-article-card m-related-section__item">
-        <div class="m-article-card__picture">
-          <a href="https://ventures.platan.us/?ref=platanews" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
-          <img class="m-related-section__image" src="{{ asset "images/ventures-web.png" }}" loading="lazy" alt="">
-        </div>
-        <div class="m-article-card__info">
-          <a href="https://ventures.platan.us/?ref=platanews" class="m-article-card__info-link">
-            <div>
-              <h2 class="m-related-section-item__title m-article-card__title js-article-card-title">
-                Platanus Ventures
-              </h2>
-              <p>Programa de 6 meses para iniciar tu startup.</p>
-            </div>
-          </a>
-        </div>
-      </article>
-
-      <article class="m-article-card m-related-section__item">
-        <div class="m-article-card__picture">
-          <a href="https://la-guia.platan.us/?ref=platanews" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
-          <img class="m-related-section__image" src="{{ asset "images/la-guia-web.png" }}" loading="lazy" alt="">
-        </div>
-        <div class="m-article-card__info">
-          <a href="https://la-guia.platan.us/?ref=platanews" class="m-article-card__info-link">
-            <div>
-              <h2 class="m-related-section-item__title m-article-card__title js-article-card-title">
-                La guía de Platanus
-              </h2>
-              <p>Mandamientos, lineamientos y acuerdos tecnológicos que tenemos para trabajar en Platanus.</p>
-            </div>
-          </a>
-        </div>
-      </article>
-    </div>
-  </div>
 
   {{#if @labs.members}}
-    <section class="m-subscribe-section">
+    <section class="m-subscribe-section py-12">
       <div class="l-wrapper in-post">
         <div class="m-subscribe-section__content">
           <div class="m-subscribe-section__text">
             <h4 class="m-subscribe-section__title">Suscríbete a nuestro newsletter</h4>
             <p class="m-subscribe-section__description">
-              Recibe un correo mensual con todo el material que publicamos y actualizamos durante el mes.
+              Recibe un correo mensual con el compilado de lo mejor de software, startups y tecnología.
             </p>
           </div>
           <div id="home-bottom-subscribe-form" class="m-subscribe-section__form">
