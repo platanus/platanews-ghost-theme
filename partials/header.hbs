@@ -10,7 +10,7 @@ This header template is shared across all the pages.
     {{#if @site.logo}}
       <a href="{{@site.url}}" class="m-logo in-mobile-topbar flex items-center">
         <img src="{{@site.logo}}" alt="{{@site.title}}">
-        <span class="text-2xl ml-2">plata<span class="font-bold">news</span></span>
+        <span class="text-2xl ml-2 whitespace-nowrap">plata<span class="font-bold">news</span></span>
       </a>
     {{else}}
       <a href="{{@site.url}}" class="m-site-name in-mobile-topbar">
@@ -35,7 +35,7 @@ This header template is shared across all the pages.
                 <li class="only-desktop">
                   <a href="{{@site.url}}" class="m-logo flex items-center">
                     <img src="{{@site.logo}}" alt="{{@site.title}}">
-                    <span class="text-2xl ml-2 align-middle">plata<span class="font-bold">news</span></span>
+                    <span class="text-2xl ml-2 align-middle whitespace-nowrap">plata<span class="font-bold">news</span></span>
                   </a>
                 </li>
                 {{else}}
