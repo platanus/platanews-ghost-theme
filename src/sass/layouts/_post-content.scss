@@ -103,6 +103,14 @@
     text-decoration: underline;
   }
 
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
   ul, ol {
     letter-spacing: 0.2px;
     line-height: 1.5;
